@@ -11,7 +11,7 @@ class SettingsInput extends React.Component
 			height: 0,
 			usePercentage: "false",
 			percentage: 0,
-			rotation: 0,
+			rotation: "0",
 			outputName: "",
 			outputFormat: "JPG",
 			quality: 80,
@@ -88,25 +88,25 @@ class SettingsInput extends React.Component
 						Rotation
 					</h2>
 					<div className="radio-group">
-						<button className={this.state.rotation === 0 ? "highlighted-button base-button radio-button" : "grey-button base-button radio-button"}
+						<button className={this.state.rotation === "0" ? "highlighted-button base-button radio-button" : "grey-button base-button radio-button"}
 										name="rotation" 
 										onClick={ this.handleOnChange } 
 										value="0">
 							No rotation
 						</button>
-						<button className={this.state.rotation === 90 ? "highlighted-button base-button radio-button" : "grey-button base-button radio-button"}
+						<button className={this.state.rotation === "90" ? "highlighted-button base-button radio-button" : "grey-button base-button radio-button"}
 										 name="rotation" 
 										 onClick={ this.handleOnChange } 
 										 value="90">
 							90 CW
 						</button>
-						<button className={this.state.rotation === 180 ? "highlighted-button base-button radio-button" : "grey-button base-button radio-button"} 
+						<button className={this.state.rotation === "180" ? "highlighted-button base-button radio-button" : "grey-button base-button radio-button"} 
 										name="rotation" 
 										onClick={ this.handleOnChange } 
 										value="180">
 							180
 						</button>
-						<button className={this.state.rotation === 270 ? "highlighted-button base-button radio-button" : "grey-button base-button radio-button"} 
+						<button className={this.state.rotation === "270" ? "highlighted-button base-button radio-button" : "grey-button base-button radio-button"} 
 										name="rotation" 
 										onClick={ this.handleOnChange } 
 										value="270">
