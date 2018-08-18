@@ -170,7 +170,17 @@ class Canvas extends React.Component
 			settingsHeight = imageRatio < 1 ? imageHeight * imageRatio : imageHeight / imageRatio;
 		}
 
-		return {imageWidth: settingsWidth, imageHeight: settingsHeight};
+		let imageSize = {imageWidth: settingsWidth, imageHeight: settingsHeight};
+
+		if (imageSize.imageWidth === 0) {
+			imageSize.imageWidth = image.width;
+		}
+
+		if (imageSize.imageHeight === 0) {
+			imageSize.imageHeight = image.height;
+		}
+
+		return imageSize;
 	}
 
 	applyNewSize(imageSize, context, image) 

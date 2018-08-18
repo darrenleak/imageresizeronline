@@ -8,7 +8,7 @@ function Header(props)
 				Image Resizer Online
 			</div>
 			<div className="header-item">
-				<a href="http://imageresizer.online/blog">Blog</a>
+				<a href="https://medium.com/@imageresizeronline">Blog</a>
 			</div>
 			<div className="header-item">
 				<a href="https://chrome.google.com/webstore/detail/image-resizer-online/hfinnicagfidbecbocafipohnaaljknn">Chrome Extension</a>
