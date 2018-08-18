@@ -5,6 +5,7 @@ import ImageInput from './imageInput';
 import SelectedFiles from './selectedFiles';
 import SettingsInput from './settingsInput';
 import Canvas from './canvas';
+import Modal from './modal';
 import '../css/main.css';
 import '../css/icons.css';
 import ReactGA from 'react-ga';
@@ -23,6 +24,7 @@ class MainForm extends React.Component
 		this.removeImages = this.removeImages.bind(this);
 		this.handleSettings = this.handleSettings.bind(this);
 		this.deleteFile = this.deleteFile.bind(this);
+		this.reset = this.reset.bind(this);
 
 		ReactGA.initialize('UA-98784571-1');
 		ReactGA.pageview(window.location.pathname + window.location.search);
@@ -76,6 +78,14 @@ class MainForm extends React.Component
 		});
 	}
 
+	reset()
+	{
+		this.setState({
+			settings: {},
+			images: []
+		});
+	}
+
 	render()
 	{
 		return (
@@ -84,7 +94,8 @@ class MainForm extends React.Component
 				<ImageInput imageUploadOnChange={ this.imageUploadOnChange }/>
 				<SelectedFiles className="container" files={ this.state.images } deleteFile={ this.deleteFile }/>
 				<SettingsInput className="container" handleSettings={ this.handleSettings }/>
-				<Canvas settings={ this.state.settings } images={ this.state.images }/>
+				<Canvas settings={ this.state.settings } images={ this.state.images } reset={ this.reset }/>
+				<Modal />
 				<About />
 			</div>
 		);

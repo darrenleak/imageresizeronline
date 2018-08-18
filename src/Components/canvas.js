@@ -11,6 +11,8 @@ class Canvas extends React.Component
 		this.settings = {};
 		this.process = this.process.bind(this);
 		this.getDownloadButton = this.getDownloadButton.bind(this);
+		this.reset = this.reset.bind(this);
+		this.processing = this.processing.bind(this);
 	}
 
 	componentDidUpdate()
@@ -36,10 +38,17 @@ class Canvas extends React.Component
 	{
 		this.downloadButton = e;
 	}
+
+	reset()
+	{
+		this.props.reset();
+	}
 	
 	process()
 	{
 		let self = this;
+		let imageCount = this.images.length;
+		let index = 0;
 		this.images.forEach(function(fileStruct) {
 			let reader = new FileReader();
 			reader.onload = (readerObject) => {
@@ -74,6 +83,8 @@ class Canvas extends React.Component
 						self.downloadButton.download = newFileName;
 						self.downloadButton.href = window.URL.createObjectURL(blob);
 						self.downloadButton.click();
+						index++;
+						self.processing(index);
 
 						ReactGA.event({
 							category: 'Resizing',
@@ -129,6 +140,21 @@ class Canvas extends React.Component
 			};
 			reader.readAsDataURL(fileStruct.file);
 		});
+	}
+
+	processing(currentIndex) 
+	{
+		if (currentIndex === this.images.length) 
+		{
+			let prompt = document.getElementById("modal-holder");
+
+			if (prompt !== null && prompt !== undefined)
+			{
+				prompt.style.display = "block";
+			}
+			
+			this.reset();
+		}
 	}
 
 	calculateImageSize(settings, image)
