@@ -28,13 +28,13 @@ class Modal extends React.Component
 							Add or Share!
 						</label>
 						<div className="extension-button base-modal-button">
-							<a href="https://chrome.google.com/webstore/detail/image-resizer-online/hfinnicagfidbecbocafipohnaaljknn" className="bookmark-label" target="_blank">
+							<a href="https://chrome.google.com/webstore/detail/image-resizer-online/hfinnicagfidbecbocafipohnaaljknn" className="bookmark-label" target="_blank" rel="noopener noreferrer">
 								ImageResizer.Online Chrome Extension
 							</a>
 						</div>
 						<div className="social-holder">
 							<div className="fb-holder">
-								<div className="fb-share-button" data-href="https://imageresizer.online" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fimageresizer.online%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">Share</a></div>
+								<div className="fb-share-button" data-href="https://imageresizer.online" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fimageresizer.online%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">Share</a></div>
 							</div>
 							<a href="https://twitter.com/intent/tweet?text=Just used https://imageresizer.online to resize my images quickly&hashtags=graphicdesign,imageresizeronline" className="twitter-button">Tweet</a>
 						</div>

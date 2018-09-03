@@ -47,7 +47,6 @@ class Canvas extends React.Component
 	process()
 	{
 		let self = this;
-		let imageCount = this.images.length;
 		let index = 0;
 		this.images.forEach(function(fileStruct) {
 			let reader = new FileReader();
@@ -146,15 +145,25 @@ class Canvas extends React.Component
 	{
 		if (currentIndex === this.images.length) 
 		{
-			let prompt = document.getElementById("modal-holder");
-
-			if (prompt !== null && prompt !== undefined)
+			if (document.cookie.indexOf("username=shown") === -1)
 			{
-				prompt.style.display = "block";
+				let prompt = document.getElementById("modal-holder")
+				
+				if (prompt !== null && prompt !== undefined)
+				{
+					prompt.style.display = "block"
+				}
 			}
 			
-			this.reset();
+			this.reset()
+			this.markShareAsShown()
 		}
+	}
+
+	markShareAsShown()
+	{
+		document.cookie = "username=shown; expires=Mon, 30 Dec 2030 12:00:00 UTC;"
+		console.log("set cookie")
 	}
 
 	calculateImageSize(settings, image)

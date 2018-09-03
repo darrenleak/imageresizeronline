@@ -1,5 +1,4 @@
 import React from 'react';
-import FormatEnum from '../Enums/FormatEnum';
 
 class SettingsInput extends React.Component
 {
